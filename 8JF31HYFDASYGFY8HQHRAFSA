@@ -640,29 +640,29 @@ local aaContainer = {}
 for i=1, #vars.aaStates do
     aaContainer[i] = func.hex({200,200,200}) .. "(" .. func.hex({222,55,55}) .. "" .. vars.pStates[i] .. "" .. func.hex({200,200,200}) .. ")" .. func.hex({155,155,155}) .. " "
     aaBuilder[i] = {
-        enableState = ui.new_checkbox(tab, container, "Enable " .. func.hex({lua_color.r, lua_color.g, lua_color.b}) .. vars.aaStates[i] .. func.hex({200,200,200}) .. " state"),
-        pitch = ui.new_combobox(tab, container, "Pitch\n" .. aaContainer[i], "Off", "Default", "Up", "Down", "Minimal", "Random", "Custom"),
-        pitchSlider = ui.new_slider(tab, container, "\nPitch add" .. aaContainer[i], -89, 89, 0, true, "°", 1),
-        yawBase = ui.new_combobox(tab, container, "Yaw base\n" .. aaContainer[i], "Local view", "At targets"),
-        yaw = ui.new_combobox(tab, container, "Yaw\n" .. aaContainer[i], "Off", "180", "Spin", "180 Z"),
-        yawCondition = ui.new_combobox(tab, container, "Yaw condition\n" .. aaContainer[i], "Static", "Left & Right", "Slow", "Hold"),
-        yawStatic = ui.new_slider(tab, container, "\nyaw limit" .. aaContainer[i], -180, 180, 0, true, "°", 1),
-        yawLeft = ui.new_slider(tab, container, "Left\nyaw" .. aaContainer[i], -180, 180, 0, true, "°", 1),
-        yawRight = ui.new_slider(tab, container, "Right\nyaw" .. aaContainer[i], -180, 180, 0, true, "°", 1),
-        yawSpeed = ui.new_slider(tab, container, "Speed\nyaw" .. aaContainer[i], 1, 14, 6, 0),
-        yawJitter = ui.new_combobox(tab, container, "Yaw jitter\n" .. aaContainer[i], "Off", "Offset", "Center", "3-Way", "Random"),
-        yawJitterCondition = ui.new_combobox(tab, container, "Yaw jitter condition\n" .. aaContainer[i], "Static", "Left & Right"),
-        yawJitterStatic = ui.new_slider(tab, container, "\nyaw jitter limit" .. aaContainer[i], -180, 180, 0, true, "°", 1),
-        yawJitterLeft = ui.new_slider(tab, container, "Left\nyaw jitter" .. aaContainer[i], -180, 180, 0, true, "°", 1),
-        yawJitterRight = ui.new_slider(tab, container, "Right\nyaw jitter" .. aaContainer[i], -180, 180, 0, true, "°", 1),
-        yawJitterDisablers = ui.new_multiselect(tab, container, "Jitter disablers\n" .. aaContainer[i], "Head safety", "Height advantage"),
-        bodyYaw = ui.new_combobox(tab, container, "Body yaw\n" .. aaContainer[i], "Off", "Opposite", "Jitter", "Static"),
-        bodyYawSlider = ui.new_slider(tab, container, "\nbody yaw limit" .. aaContainer[i], -180, 180, 0, true, "°", 1),
-        defensiveOpt = ui.new_multiselect(tab, container, "Defensive options\n" .. aaContainer[i], "Elusive mode", "Always on"),
-        defensiveYaw = ui.new_combobox(tab, container, "Defensive yaw\n" .. aaContainer[i], "-", "Random", "Jitter", "Custom"),
-        defensiveYawSlider = ui.new_slider(tab, container, "\nDefensiveYawSlider" .. aaContainer[i], -180, 180, 0, true, "", 1),
-        defensivePitch = ui.new_combobox(tab, container, "Defensive pitch\n" .. aaContainer[i], "-", "Custom"),
-        defensivePitchSlider = ui.new_slider(tab, container, "\nDefensivePitchSlider" .. aaContainer[i], -89, 89, 0, true, "°", 1),
+        enableState = ui.new_checkbox(tab, container, "» Enable " .. func.hex({lua_color.r, lua_color.g, lua_color.b}) .. vars.aaStates[i] .. func.hex({200,200,200}) .. " state"),
+        pitch = ui.new_combobox(tab, container, "● Pitch\n" .. aaContainer[i], "Off", "Default", "Up", "Down", "Minimal", "Random", "Custom"),
+        pitchSlider = ui.new_slider(tab, container, "\n● Pitch Add" .. aaContainer[i], -89, 89, 0, true, "°", 1),
+        yawBase = ui.new_combobox(tab, container, "● Yaw Base\n" .. aaContainer[i], "Local view", "At targets"),
+        yaw = ui.new_combobox(tab, container, "● Yaw\n" .. aaContainer[i], "Off", "180", "Spin", "180 Z"),
+        yawCondition = ui.new_combobox(tab, container, "● Yaw condition\n" .. aaContainer[i], "Static", "Left & Right", "Slow", "Hold"),
+        yawStatic = ui.new_slider(tab, container, "\n● yaw limit" .. aaContainer[i], -180, 180, 0, true, "°", 1),
+        yawLeft = ui.new_slider(tab, container, "● Left\nyaw" .. aaContainer[i], -180, 180, 0, true, "°", 1),
+        yawRight = ui.new_slider(tab, container, "● Right\nyaw" .. aaContainer[i], -180, 180, 0, true, "°", 1),
+        yawSpeed = ui.new_slider(tab, container, "● Speed\nyaw" .. aaContainer[i], 1, 14, 6, 0),
+        yawJitter = ui.new_combobox(tab, container, "● Yaw jitter\n" .. aaContainer[i], "Off", "Offset", "Center", "3-Way", "Random"),
+        yawJitterCondition = ui.new_combobox(tab, container, "● Yaw jitter condition\n" .. aaContainer[i], "Static", "Left & Right"),
+        yawJitterStatic = ui.new_slider(tab, container, "\n● yaw jitter limit" .. aaContainer[i], -180, 180, 0, true, "°", 1),
+        yawJitterLeft = ui.new_slider(tab, container, "● Left\nyaw jitter" .. aaContainer[i], -180, 180, 0, true, "°", 1),
+        yawJitterRight = ui.new_slider(tab, container, "● Right\nyaw jitter" .. aaContainer[i], -180, 180, 0, true, "°", 1),
+        yawJitterDisablers = ui.new_multiselect(tab, container, "● Jitter disablers\n" .. aaContainer[i], "Head safety", "Height advantage"),
+        bodyYaw = ui.new_combobox(tab, container, "● Body Yaw\n" .. aaContainer[i], "Off", "Opposite", "Jitter", "Static"),
+        bodyYawSlider = ui.new_slider(tab, container, "\n● body yaw limit" .. aaContainer[i], -180, 180, 0, true, "°", 1),
+        defensiveOpt = ui.new_multiselect(tab, container, "● Defensive Active\n" .. aaContainer[i], "On peek", "Always on"),
+        defensiveYaw = ui.new_combobox(tab, container, "● Defensive Yaw\n" .. aaContainer[i], "-", "Random", "Jitter", "Custom"),
+        defensiveYawSlider = ui.new_slider(tab, container, "\n● DefensiveYawSlider" .. aaContainer[i], -180, 180, 0, true, "", 1),
+        defensivePitch = ui.new_combobox(tab, container, "● Defensive Pitch\n" .. aaContainer[i], "-", "Custom"),
+        defensivePitchSlider = ui.new_slider(tab, container, "\n● DefensivePitchSlider" .. aaContainer[i], -89, 89, 0, true, "°", 1),
     }
 end
 
@@ -1200,7 +1200,7 @@ client.set_event_callback("setup_command", function(cmd)
             cmd.allow_send_packet = true
         end
 
-        if func.includes(ui.get(aaBuilder[vars.pState].defensiveOpt), "Elusive mode") then
+        if func.includes(ui.get(aaBuilder[vars.pState].defensiveOpt), "On peek") then
             ui.set(refs.dt[3], "Defensive")
 
             if tickcount % 3 == 1 then
