@@ -1,7 +1,7 @@
 -- @region LUASETTINGS start
 local lua_name = "Hybrid Live"
 local lua_color = {r = 215, g = 240, b = 188}
-local data = {username = 'Mikus', build = 'Live'}
+local data = {username = 'Mikus', build = '21.12.2023'}
 -- @region LUASETTINGS end
 
 
@@ -546,27 +546,6 @@ local colorful_text = {
         end
     end
 }
-local download
-local function downloadFile()
-	http.get(string.format("https://flagsapi.com/%s/flat/64.png", MyPersonaAPI.GetMyCountryCode()), function(success, response)
-		if not success or response.status ~= 200 then
-			print("couldnt fetch the flag image")
-            return
-		end
-
-		download = response.body
-	end)
-
-    http.get("https://cdn.discordapp.com/attachments/988158548422852668/1186701393915039855/photo-1611267254323-4db7b39c732c.png?ex=659434cc&is=6581bfcc&hm=a15191fe5b82380da856781a6f1ea7a8853cc87dcd084fe57b7ece41d4061e8a&", function(success, response)
-		if not success or response.status ~= 200 then
-			print("couldnt fetch the logo image")
-            return
-		end
-
-		writefile("bluh.png", response.body)
-	end)
-end
-downloadFile()
 -- @region FUNCS end
 
 -- @region UI_LAYOUT start
@@ -587,7 +566,7 @@ local menu = {
 
     aaTab = {
         freestandHotkey = ui.new_hotkey(tab, container, "Freestand"),
-        freestandDisablers = ui.new_multiselect(tab, container, "» Disabler", {"Air", "Slowmotion", "Duck", "Manual"}),
+        freestandDisablers = ui.new_multiselect(tab, container, "» Disabler", {"Air", "Slowwalk", "Duck", "Manual"}),
         staticManuals = ui.new_checkbox(tab, container, "Static on manuals"),
         manualTab = {
             manualLeft = ui.new_hotkey(tab, container, "Manual " .. func.hex({200,200,200}) .. "left"),
@@ -1379,7 +1358,7 @@ client.set_event_callback("setup_command", function(e)
 
     local air = func.includes(ui.get(menu.aaTab.freestandDisablers), "Air") and not onground
     local duck = func.includes(ui.get(menu.aaTab.freestandDisablers), "Duck") and entity.get_prop(vars.localPlayer, "m_flDuckAmount") > 0.1
-    local slow = func.includes(ui.get(menu.aaTab.freestandDisablers), "Slowmotion") and isSlow
+    local slow = func.includes(ui.get(menu.aaTab.freestandDisablers), "Slowwalk") and isSlow
     local manul = func.includes(ui.get(menu.aaTab.freestandDisablers), "Manual") and (aa.manualAA == 2 or aa.manualAA == 1) and aa.ignore
     local fs_disabler = air or duck or slow or manul
 
@@ -1649,10 +1628,8 @@ client.set_event_callback("paint", function()
     if readfile("bluh.png") ~= nil then
         local mainY = 4
         local marginX, marginY = renderer.measure_text("-d", lua_name:upper())
-        local png = images.load_png(readfile("bluh.png"))
-        png:draw(5, sizeY/2 - 9, 61, 64, 255, 255, 255, wAlpha, true, "f")
-        renderer.text(69, sizeY/2 + 15, 255, 255, 255, wAlpha, "-d", nil, lua_name:upper() .. "\a" .. func.RGBAtoHEX(watermarkClr.r, watermarkClr.g, watermarkClr.b, wAlpha))
-        renderer.text(69, sizeY/2 + 23, 255, 255, 255, wAlpha, "-d", nil, "NICK » " .. login.username:upper() .. "\a" .. func.RGBAtoHEX(watermarkClr.r, watermarkClr.g, watermarkClr.b, wAlpha) .. "    [" .. login.build:upper() .. "]")
+        renderer.text(30, sizeY/2 + 15, 255, 255, 255, wAlpha, "-d", nil, lua_name:upper() .. "\a" .. func.RGBAtoHEX(watermarkClr.r, watermarkClr.g, watermarkClr.b, wAlpha))
+        renderer.text(5, sizeY/2 + 27, 255, 255, 255, wAlpha, "-d", nil, "LAST UPDATE »" .. "\a" .. func.RGBAtoHEX(watermarkClr.r, watermarkClr.g, watermarkClr.b, wAlpha) .. "    [" .. login.build:upper() .. "]")
     end
     
 
